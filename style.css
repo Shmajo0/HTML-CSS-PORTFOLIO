@@ -1,67 +1,92 @@
-body{
+body {
   background-color: rgb(46, 45, 45);
   color: white;
+  /* Add a max-width to the body to prevent it from becoming too wide */
+  max-width: 1200px;
+  margin: 0 auto;
 }
-p, li{
-  font-size: 20px;
+
+p, li {
+  font-size: 1.25rem; /* Use relative font size */
 }
-.container{
+
+.container {
   display: flex;
+  flex-wrap: wrap; /* Allow the container to wrap its contents */
   width: 100%;
-  height: 500px;
-    
-    position: relative;
-    justify-content: space-between;
-    margin: 0 auto;
-}
-.heading{
+  height: 100vh; /* Use viewport height instead of fixed value */
   position: relative;
-  top: 100px;
-  left: 100px;
-  justify-content: center; 
-  height: 50px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px; /* Add some padding to the container */
 }
-.heading h1, h2{
-  font-size: 50px;
+
+.heading {
+  position: relative;
+  top: 10vh; /* Use viewport height instead of fixed value */
+  left: 10vw; /* Use viewport width instead of fixed value */
+  justify-content: center;
+  height: 10vh; /* Use viewport height instead of fixed value */
 }
+
+.heading h1, h2 {
+  font-size: 3rem; /* Use relative font size */
+}
+
 .heading, .image {
   flex: 1; /* Give each div equal flex-grow property */
 }
 
-.image{
+.image {
   position: relative;
-  right: 10px;
-  bottom: 20px;
-}
-.image img {
-  width: 600px; /* Make image fill its parent div */
-  height: 600px; /* Maintain aspect ratio */
+  right: 1vw; /* Use viewport width instead of fixed value */
+  bottom: 2vh; /* Use viewport height instead of fixed value */
 }
 
-.skills{
-  padding-top: 60px;
+.image img {
+  width: 100%; /* Make image fill its parent div */
+  height: 100%; /* Maintain aspect ratio */
+  object-fit: cover; /* Add this to maintain aspect ratio */
+}
+
+.skills, .education, .experience, .awards {
+  padding-top: 4vh; /* Use viewport height instead of fixed value */
   display: grid;
   place-items: center;
 }
 
-.skills p{
+.skills p, .education p, .experience p, .awards p {
   margin: 0;
   width: 80%;
   text-align: center;
 }
 
-.education{
-display: grid;
-place-items: center;
+/* Media queries to adjust styles for different screen sizes */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack the container contents vertically */
+  }
+  .heading {
+    top: 5vh; /* Adjust the top position for smaller screens */
+    left: 5vw; /* Adjust the left position for smaller screens */
+  }
+  .image {
+    right: 0; /* Remove the right offset for smaller screens */
+    bottom: 0; /* Remove the bottom offset for smaller screens */
+  }
+  .image img {
+    width: 80%; /* Reduce the image width for smaller screens */
+    height: 80%; /* Reduce the image height for smaller screens */
+  }
 }
 
-.experience{
-  display: grid;
-  place-items: center;
+@media (max-width: 480px) {
+  .heading {
+    top: 2vh; /* Adjust the top position for even smaller screens */
+    left: 2vw; /* Adjust the left position for even smaller screens */
+  }
+  .image img {
+    width: 60%; /* Reduce the image width for even smaller screens */
+    height: 60%; /* Reduce the image height for even smaller screens */
+  }
 }
-.awards{
-  display: grid;
-  place-items: center;
-
-}
-
